@@ -28,12 +28,12 @@ Writing benefits as it gives me when i deploy in any project.
 
 Below are the steps to do so:
 
-1.  Add some more parameters as per our requirement:
-    a.  "caller_id" and pass value with sys_id of User you want to populate in "Caller" field.
-    b.  "cmdb_ci" and pass value as "{EVENT.TAGS.cmdb_sysid}". Will configure this tag on hosts to update "Configuration item" field so that we can fetch later how many tickets were logged for this perticular host.
-    c.  "contact_type" and pass value with "monitoring" to populate in "Channel" field and it will help us to bifurcate how an incident is coming in ServiceNow.
-    d.  "zabbix_auth" and pass value as "{$ZABBIX_AUTHCODE}". Will configure this Global Macro to provide update on event if required. 
-    e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.
+1.  Add some more parameters as per our requirement:<br>
+    a.  "caller_id" and pass value with sys_id of User you want to populate in "Caller" field.<br>
+    b.  "cmdb_ci" and pass value as "{EVENT.TAGS.cmdb_sysid}". Will configure this tag on hosts to update "Configuration item" field so that we can fetch later how many tickets were logged for this perticular host.<br>
+    c.  "contact_type" and pass value with "monitoring" to populate in "Channel" field and it will help us to bifurcate how an incident is coming in ServiceNow.<br>
+    d.  "zabbix_auth" and pass value as "{$ZABBIX_AUTHCODE}". Will configure this Global Macro to provide update on event if required. <br>
+    e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.<br>
 
 ## Supported Versions
 Zabbix 6.4
