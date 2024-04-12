@@ -36,5 +36,12 @@ Below are the steps to do so:
     e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.<br>
 
 ![New Parameters](https://github.com/vsbopi/zabbix/blob/fef4f14eb34467bb6660b059cf70482bca027dfe/ServiceNow%20Media%20Webhook/images/image1.png?raw=true)
+
+2.  Configure a API Token in zabbix that will be add as "zabbix_auth".
+
+3.  Go to Global Macros and configure below macros.
+![Global Macros](https://github.com/vsbopi/zabbix/blob/fef4f14eb34467bb6660b059cf70482bca027dfe/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
+
+4.  
 ## Supported Versions
 Zabbix 6.4
