@@ -33,7 +33,7 @@ Follow these steps to implement the upgrades:
 
 1. **Additional Parameters:** Introduce new parameters as needed:
    - **caller_id:** Provide the sys_id of the user for the Caller field.
-   - **cmdb_ci:** Utilize {EVENT.TAGS.cmdb_sysid} to populate the Configuration Item field.
+   - **cmdb_ci:** Utilize {EVENT.TAGS.sysid} to populate the Configuration Item field.
    - **contact_type:** Set as "monitoring" for Channel field classification.
    - **zabbix_auth:** Use {$ZABBIX_AUTHCODE} to authenticate event updates.
    - **zabbix_zurl:** Incorporate {$ZABBIX_ZURL} for event update URLs.
@@ -46,7 +46,7 @@ Follow these steps to implement the upgrades:
 
 ![Global Macros](https://github.com/vsbopi/zabbix/blob/003fb9cd62ab1cc88405332490d1abe1e2f28e9e/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
 
-4. **Host Configuration:** Add the "cmdb_sysid" tag to hosts for updating the Configuration Item when an incident is logged.
+4. **Host Configuration:** Add the "sysid" tag to hosts for updating the Configuration Item when an incident is logged.
 
 ![Host Config](https://github.com/vsbopi/zabbix/blob/7e58910af5048474aa6362d4322a1360bfde1e2f/ServiceNow%20Media%20Webhook/images/image3.png?raw=true)
 
