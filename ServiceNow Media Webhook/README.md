@@ -36,6 +36,7 @@ Below are the steps to do so:
     e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.<br>
 
 ![New Parameters](ServiceNow Media Webhook/images/image1.png)
-
+![Alt text](relative%20path/to/img.jpg?raw=true "Title")
+![alt text](https://github.com/vsbopi/zabbix/blob/fef4f14eb34467bb6660b059cf70482bca027dfe/ServiceNow%20Media%20Webhook/images/image1.png?raw=true)
 ## Supported Versions
 Zabbix 6.4
