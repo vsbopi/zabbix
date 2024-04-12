@@ -1,52 +1,57 @@
-# Zabbix ServiceNow Media Webhook 
+# Zabbix ServiceNow Webhook Upgrade Guide
 
-This guide describes how to upgrade existing servicenow webhook with capability such as updating event with Incident Number, URL. Also add functionality to auto-close incident if event got closed. While I am uploading it, I am using Zabbix 6.4 installation.<br>
-Please note that recovery and update operations and ServiceNow's custom fields are supported only for trigger-based events.
+## Overview
 
-# ServiceNow Webhook Setup
+This guide provides instructions for enhancing your existing ServiceNow webhook with additional features, such as updating events with Incident Number and URL, and auto-closing incidents upon event resolution. These enhancements are tailored for Zabbix 6.4 installations.
 
-First to configure ServiceNow webhook, kindly follow [zabbix/zabbix/templates/media/servicenow](https://github.com/zabbix/zabbix/tree/release/6.4/templates/media/servicenow)<br>
+## ServiceNow Webhook Configuration
 
-## New features we are adding as custum change
+To configure the ServiceNow webhook, follow the instructions provided in [zabbix/zabbix/templates/media/servicenow](https://github.com/zabbix/zabbix/tree/release/6.4/templates/media/servicenow).
 
-1.  Adding Caller Id in Incident while logging ticket in ServiceNow.
-2.  Adding CMDB CI in Incident while logging ticket in ServiceNow.
-3.  Adding Contact Type in Incident while logging ticket in ServiceNow.
-4.  Update ticket as comments if their is any update on event.
-5.  Auto close ticket once event has been closed.
+## New Custom Changes
+
+We're introducing the following enhancements:
+
+1. **Caller ID Addition:** Incorporate the Caller ID when logging tickets in ServiceNow.
+2. **CMDB CI Inclusion:** Add CMDB CI details to incidents for better tracking.
+3. **Contact Type Specification:** Include the Contact Type in incidents for classification.
+4. **Ticket Updates:** Update tickets with event changes via comments.
+5. **Auto-Closure:** Automatically close tickets when events are resolved.
 
 ## Benefits
 
-Writing benefits as it gives me when i deploy in any project.
+Deploying these enhancements offers several advantages:
 
-1.  For better reporting as it will help me to add custom details to Incident.
-2.  Assign Incident to perticular Assignment Group as per team/template/server/item.
-3.  You don't have to worry about incident closure in ServiceNow once issue has been resolved because it will be resolved by Zabbix as soon as recovery received on event hence engineer will focus more on tech side instead of process. 
-4.  Also TTD & TTR will be accurate which is too hard to calculate in any project.
+1. **Enhanced Reporting:** Custom details improve incident documentation.
+2. **Targeted Assignments:** Assign incidents to specific groups based on criteria.
+3. **Streamlined Process:** Automating incident closure frees up engineers for technical tasks.
+4. **Accurate Metrics:** Time to Detect (TTD) and Time to Resolve (TTR) metrics become more reliable.
 
-## Changes need to be done
+## Required Changes
 
-Below are the steps to do so:
+Follow these steps to implement the upgrades:
 
-1.  Add some more parameters as per our requirement:<br>
-    a.  "caller_id" and pass value with sys_id of User you want to populate in "Caller" field.<br>
-    b.  "cmdb_ci" and pass value as "{EVENT.TAGS.cmdb_sysid}". Will configure this tag on hosts to update "Configuration item" field so that we can fetch later how many tickets were logged for this perticular host.<br>
-    c.  "contact_type" and pass value with "monitoring" to populate in "Channel" field and it will help us to bifurcate how an incident is coming in ServiceNow.<br>
-    d.  "zabbix_auth" and pass value as "{$ZABBIX_AUTHCODE}". Will configure this Global Macro to provide update on event if required. <br>
-    e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.<br>
+1. **Additional Parameters:** Introduce new parameters as needed:
+   - **caller_id:** Provide the sys_id of the user for the Caller field.
+   - **cmdb_ci:** Utilize {EVENT.TAGS.cmdb_sysid} to populate the Configuration Item field.
+   - **contact_type:** Set as "monitoring" for Channel field classification.
+   - **zabbix_auth:** Use {$ZABBIX_AUTHCODE} to authenticate event updates.
+   - **zabbix_zurl:** Incorporate {$ZABBIX_ZURL} for event update URLs.
 
 ![New Parameters](https://github.com/vsbopi/zabbix/blob/fef4f14eb34467bb6660b059cf70482bca027dfe/ServiceNow%20Media%20Webhook/images/image1.png?raw=true)
 
-2.  Configure a API Token in zabbix that will be add as "zabbix_auth".
+2. **API Token Configuration:** Set up an API Token in Zabbix for zabbix_auth.
 
-3.  Go to Global Macros and configure below macros.
+3. **Global Macros Configuration:** Configure the following macros in Global Macros.
+
 ![Global Macros](https://github.com/vsbopi/zabbix/blob/003fb9cd62ab1cc88405332490d1abe1e2f28e9e/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
 
-4.  Now time to configure "cmdb_sysid" tag on hosts so that when an incident logged "Configuration Item" will be updated.
+4. **Host Configuration:** Add the "cmdb_sysid" tag to hosts for updating the Configuration Item when an incident is logged.
+
 ![Host Config](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/images/image3.png?raw=true)
 
-Note:- Similarily you can configure Assignment Group as well. Parameter will be and you can pass one more tag that can be tagged on template/host/host group/items etc.
+5. **Script Replacement:** Replace the existing script with the one provided in [Script.js](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/Script.js).
 
-5.  Last and final steps is to replace script with ![Script.js](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/Script.js) i have uploaded.
 ## Supported Versions
-Zabbix 6.4
+
+These upgrades are compatible with Zabbix version 6.4.
