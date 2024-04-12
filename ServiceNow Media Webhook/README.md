@@ -35,7 +35,7 @@ Below are the steps to do so:
     d.  "zabbix_auth" and pass value as "{$ZABBIX_AUTHCODE}". Will configure this Global Macro to provide update on event if required. <br>
     e.  "zabbix_zurl" and pass value as "{$ZABBIX_ZURL}". Will configure this Global Macro to provide update on event if required.<br>
 
-[![](images/thumb.1.png)](images/image1.png)
+![New Parameters](ServiceNow Media Webhook/images/image1.png)
 
 ## Supported Versions
 Zabbix 6.4
