@@ -42,6 +42,11 @@ Below are the steps to do so:
 3.  Go to Global Macros and configure below macros.
 ![Global Macros](https://github.com/vsbopi/zabbix/blob/003fb9cd62ab1cc88405332490d1abe1e2f28e9e/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
 
-4.  
+4.  Now time to configure "cmdb_sysid" tag on hosts so that when an incident logged "Configuration Item" will be updated.
+![Host Config](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/images/image3.png?raw=true)
+
+Note:- Similarily you can configure Assignment Group as well. Parameter will be and you can pass one more tag that can be tagged on template/host/host group/items etc.
+
+5.  Last and final steps is to replace script with ![Script.js](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/Script.js) i have uploaded.
 ## Supported Versions
 Zabbix 6.4
