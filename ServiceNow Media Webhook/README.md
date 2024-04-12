@@ -40,7 +40,7 @@ Below are the steps to do so:
 2.  Configure a API Token in zabbix that will be add as "zabbix_auth".
 
 3.  Go to Global Macros and configure below macros.
-![Global Macros](https://github.com/vsbopi/zabbix/blob/fef4f14eb34467bb6660b059cf70482bca027dfe/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
+![Global Macros](https://github.com/vsbopi/zabbix/blob/003fb9cd62ab1cc88405332490d1abe1e2f28e9e/ServiceNow%20Media%20Webhook/images/image2.png?raw=true)
 
 4.  
 ## Supported Versions
