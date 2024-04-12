@@ -48,7 +48,7 @@ Follow these steps to implement the upgrades:
 
 4. **Host Configuration:** Add the "cmdb_sysid" tag to hosts for updating the Configuration Item when an incident is logged.
 
-![Host Config](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/images/image3.png?raw=true)
+![Host Config](https://github.com/vsbopi/zabbix/blob/7e58910af5048474aa6362d4322a1360bfde1e2f/ServiceNow%20Media%20Webhook/images/image3.png?raw=true)
 
 5. **Script Replacement:** Replace the existing script with the one provided in [Script.js](https://github.com/vsbopi/zabbix/blob/b560dadd16a8b7090ace562e95e3aa0f476921eb/ServiceNow%20Media%20Webhook/Script.js).
 
